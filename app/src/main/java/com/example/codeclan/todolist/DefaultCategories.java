@@ -1,16 +1,20 @@
 package com.example.codeclan.todolist;
 
+import android.content.Context;
+import android.widget.ArrayAdapter;
+
 import java.util.ArrayList;
 
 /**
  * Created by annalanigan on 05/01/2018.
  */
 
-public class DefaultCategories {
+public class DefaultCategories extends ArrayAdapter<Category> {
 
     private ArrayList<Category> defaultCategories;
 
-    public DefaultCategories(){
+    public DefaultCategories(Context context, ArrayList<Category> categoriesList){
+        super(context, 0,categoriesList);
         defaultCategories = new ArrayList<Category>();
         defaultCategories.add(new Category("Shopping", R.drawable.shopping));
         defaultCategories.add(new Category("Home", R.drawable.home));

@@ -32,6 +32,21 @@ public class ItemTest {
         assertEquals("Dylan and Alice", item3.getDetails());
     }
 
+    @Test
+    public void canGetCompleted(){
+        assertEquals(false, item2.getCompleted());
+    }
 
+    @Test
+    public void canCompleteTask(){
+        item1.completeTask();
+        assertEquals(true, item1.getCompleted());
+    }
+
+    @Test
+    public void canSetRanking(){
+        item2.setRanking(1);
+        assertEquals("1", item2.getRanking().toString());
+    }
 
 }

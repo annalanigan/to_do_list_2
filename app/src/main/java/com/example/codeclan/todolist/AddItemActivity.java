@@ -13,7 +13,7 @@ public class AddItemActivity extends AppCompatActivity {
 
     EditText titleText;
     EditText detailsText;
-    Spinner categoryChoice;
+    EditText categoryChoice;
     EditText dateChoice;
     ArrayList<Item> spinnerList;
 
@@ -26,20 +26,20 @@ public class AddItemActivity extends AppCompatActivity {
         titleText = findViewById(R.id.title);
         detailsText = findViewById(R.id.details);
         dateChoice = findViewById(R.id.due_date);
-
         categoryChoice = findViewById(R.id.add_category);
 
-        spinnerList =  new DefaultCategories.getDefaultList();
-        // Not working anyway - but...
-        // this will return an array list of the objects and the spinner needs an array list
-        // of the Strings of the names?
+//        spinnerList =  new DefaultCategories.getCategoryNames();
+//        // Not working anyway - but...
+//        // this will return an array list of the objects and the spinner needs an array list
+//        // of the Strings of the names?
 
     }
 
     public void onAddButtonClicked(View button){
         String newTitle = titleText.getText().toString();
-        String newDetails = titleText.getText().toString();
-        Category newCategory = (Category) categoryChoice.;
+        String newDetails = detailsText.getText().toString();
+        String newCategory = categoryChoice.getText().toString();
+
 
 
     }

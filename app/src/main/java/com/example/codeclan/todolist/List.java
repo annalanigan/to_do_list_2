@@ -13,9 +13,9 @@ public class List implements Serializable {
 
     public List(){
         list = new ArrayList<Item>();
-        list.add(new Item("food shop", "Sainsburys", 0));
-        list.add(new Item("buy lighbulb", "halogen and 40 watt", 0));
-        list.add(new Item("build drawer unit", "kids bedroom", 1));
+        list.add(new Item("food shop", "Sainsburys", "shopping"));
+        list.add(new Item("buy lighbulb", "halogen and 40 watt", "shopping"));
+        list.add(new Item("build drawer unit", "kids bedroom", "home"));
     }
 
     public void addItem(Item item){

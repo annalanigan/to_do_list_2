@@ -38,7 +38,7 @@ public class ListAdapter extends ArrayAdapter<Item> {
             title.setText(currentItem.getName());
 
             ImageView icon = (ImageView) listItemView.findViewById(R.id.icon);
-            icon.setImageResource(currentItem.getCategory().getLogo());
+            icon.setImageResource(currentItem.getLogo());
 
             listItemView.setTag(currentItem);
         }

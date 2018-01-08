@@ -1,5 +1,8 @@
 package com.example.codeclan.todolist;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,21 +10,21 @@ import java.util.Date;
  * Created by annalanigan on 05/01/2018.
  */
 
+@Entity
 public class Item implements Serializable {
 
+    @PrimaryKey
     private String name;
     private String details;
     private Boolean completed;
-    private Category category;
+    private String category;
     private Date due;
-    private DefaultCategories listOfCategories; // do I need this here?
 
-    public Item(String name, String details, int index){
+    public Item(String name, String details, String catName){
         this.name = name;
         this.details = details;
         this.completed = false;
-        listOfCategories = new DefaultCategories();
-        this.category = listOfCategories.getCategory(index);
+        this.category = catName;
         this.due = new Date();
     }
 
@@ -53,11 +56,11 @@ public class Item implements Serializable {
         this.completed = true;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -67,6 +70,26 @@ public class Item implements Serializable {
 
     public void setDue(Date due) {
         this.due = due;
+    }
+
+    public int getLogo() {
+        int logoLocation = 0;
+        if (category == "shopping") {
+            logoLocation = R.drawable.shopping;
+        }
+        else if (category == "home"){
+            logoLocation = R.drawable.home;
+        }
+        else if (category == "work") {
+            logoLocation = R.drawable.work;
+        }
+        else if (category == "kids"){
+            logoLocation = R.drawable.kids;
+        }
+        else {
+            logoLocation = R.drawable.other;
+        }
+        return logoLocation;
     }
 
 }

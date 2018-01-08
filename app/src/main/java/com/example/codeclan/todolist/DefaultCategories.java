@@ -38,4 +38,13 @@ public class DefaultCategories implements Serializable{
         return defaultCategories.get(index);
     }
 
+
+    public ArrayList<String> getCategoryNames(){
+        ArrayList<String> names = new ArrayList<>();
+        for (Category each : defaultCategories){
+            names.add(each.getName());
+        }
+        return names;
+    }
+
 }

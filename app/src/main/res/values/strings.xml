@@ -5,4 +5,5 @@
     <string name="details">Additional Details</string>
     <string name="dueDate">Date Due</string>
     <string name="completed">Done</string>
+    <string name="category">Add Category</string>
 </resources>

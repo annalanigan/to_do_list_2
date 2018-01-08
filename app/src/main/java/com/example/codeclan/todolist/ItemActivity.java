@@ -26,8 +26,8 @@ public class ItemActivity extends AppCompatActivity {
 
         title.setText(item.getName());
         details.setText(item.getDetails());
-        category.setText(item.getCategory().getName());
-        logo.setImageResource(item.getCategory().getLogo());
+        category.setText(item.getCategory());
+        logo.setImageResource(item.getLogo());
         date.setText(item.getDue().toString());
 
     }

@@ -29,16 +29,19 @@ public class ListAdapter extends ArrayAdapter<Item> {
 
         Item currentItem = getItem(position);
 
+        if (currentItem.getCompleted() == false) {
+
 //        TextView ranking = (TextView) listItemView.findViewById(R.id.rank);
 //        ranking.setText(currentItem.getRanking().toString());
 
-        TextView title = (TextView) listItemView.findViewById(R.id.title_list);
-        title.setText(currentItem.getName());
+            TextView title = (TextView) listItemView.findViewById(R.id.title_list);
+            title.setText(currentItem.getName());
 
-        ImageView icon = (ImageView) listItemView.findViewById(R.id.icon);
-        icon.setImageResource(currentItem.getCategory().getLogo());
+            ImageView icon = (ImageView) listItemView.findViewById(R.id.icon);
+            icon.setImageResource(currentItem.getCategory().getLogo());
 
-        listItemView.setTag(currentItem);
+            listItemView.setTag(currentItem);
+        }
 
         return listItemView;
 

@@ -1,10 +1,12 @@
 package com.example.codeclan.todolist;
 
+import java.io.Serializable;
+
 /**
  * Created by annalanigan on 05/01/2018.
  */
 
-public class Category {
+public class Category implements Serializable{
 
     private String name;
     private Integer logo;

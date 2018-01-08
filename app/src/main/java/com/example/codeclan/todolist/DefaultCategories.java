@@ -3,18 +3,18 @@ package com.example.codeclan.todolist;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by annalanigan on 05/01/2018.
  */
 
-public class DefaultCategories extends ArrayAdapter<Category> {
+public class DefaultCategories implements Serializable{
 
     private ArrayList<Category> defaultCategories;
 
-    public DefaultCategories(Context context, ArrayList<Category> categoriesList){
-        super(context, 0,categoriesList);
+    public DefaultCategories(){
         defaultCategories = new ArrayList<Category>();
         defaultCategories.add(new Category("Shopping", R.drawable.shopping));
         defaultCategories.add(new Category("Home", R.drawable.home));

@@ -27,5 +27,9 @@ public class List implements Serializable {
         return rank += 1;
     }
 
+    public ArrayList<Item> getList(){
+        return new ArrayList<Item>(list);
+    }
+
 
 }

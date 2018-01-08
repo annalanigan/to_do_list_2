@@ -29,8 +29,8 @@ public class ListAdapter extends ArrayAdapter<Item> {
 
         Item currentItem = getItem(position);
 
-        TextView ranking = (TextView) listItemView.findViewById(R.id.rank);
-        ranking.setText(currentItem.getRanking().toString());
+//        TextView ranking = (TextView) listItemView.findViewById(R.id.rank);
+//        ranking.setText(currentItem.getRanking().toString());
 
         TextView title = (TextView) listItemView.findViewById(R.id.title_list);
         title.setText(currentItem.getName());

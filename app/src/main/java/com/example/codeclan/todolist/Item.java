@@ -14,17 +14,15 @@ public class Item implements Serializable {
     private Boolean completed;
     private Category category;
     private Date due;
-    private Integer ranking;
-    private DefaultCategories listOfCategories;
+    private DefaultCategories listOfCategories; // do I need this here?
 
-    public Item(String name, String details, int categoryIndex){
+    public Item(String name, String details, int index){
         this.name = name;
         this.details = details;
         this.completed = false;
         listOfCategories = new DefaultCategories();
-        this.category = listOfCategories.getCategory(categoryIndex);
+        this.category = listOfCategories.getCategory(index);
         this.due = new Date();
-        this.ranking = null;
     }
 
     public String getName() {
@@ -71,11 +69,4 @@ public class Item implements Serializable {
         this.due = due;
     }
 
-    public Integer getRanking() {
-        return ranking;
-    }
-
-    public void setRanking(Integer ranking) {
-        this.ranking = ranking;
-    }
 }

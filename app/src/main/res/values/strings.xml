@@ -8,4 +8,5 @@
     <string name="category">Add Category</string>
     <string name="preference_file_key">To Do List</string>
     <string name="task_preference_key">My Tasks</string>
+    <string name="refresh">Refresh</string>
 </resources>

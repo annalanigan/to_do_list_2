@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,6 +33,8 @@ public class ListAdapter extends ArrayAdapter<Task> {
 
         Task currentTask = getItem(position);
 
+        if (!currentTask.getCompleted()) {
+
 //        TextView ranking = (TextView) listItemView.findViewById(R.id.rank);
 //        ranking.setText(currentTask.getRanking().toString());
 
@@ -42,9 +45,9 @@ public class ListAdapter extends ArrayAdapter<Task> {
             icon.setImageResource(currentTask.getLogo());
 
             listItemView.setTag(currentTask);
-
+        }
         return listItemView;
-
     }
+
 
 }

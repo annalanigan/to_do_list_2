@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.codeclan.todolist.Task;
 import com.example.codeclan.todolist.list.List;
@@ -22,14 +24,12 @@ import java.util.ArrayList;
 public class ListActivity extends AppCompatActivity {
 
     Button addButton;
+    Button refreshButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-
-//        List list = new List();
-//        ArrayList<Task> listToView = list.getList();
 
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         String allTasks = sharedPref.getString(getString(R.string.task_preference_key), new ArrayList<Task>().toString());
@@ -50,8 +50,10 @@ public class ListActivity extends AppCompatActivity {
         editor.putString(getString(R.string.task_preference_key), gson.toJson(myToDoList));
         editor.apply();
 
+        Toast.makeText(this, "Task Added", Toast.LENGTH_LONG).show();
 
         addButton = findViewById(R.id.button);
+        refreshButton = findViewById(R.id.refresh);
     }
 
     // when clicking on the list item - takes you through to the further details
@@ -75,6 +77,40 @@ public class ListActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+
+    public void onCheckBoxChecked(View view){
+        boolean checked = ((CheckBox) view).isChecked();
+        Task task = (Task) view.getTag();
+
+        if (checked){
+
+            SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+            String allTasks = sharedPref.getString(getString(R.string.task_preference_key), new ArrayList<Task>().toString());
+
+            Gson gson = new Gson();
+            TypeToken<ArrayList<Task>> existingArrayList = new TypeToken<ArrayList<Task>>() {};
+            ArrayList<Task> myToDoList = gson.fromJson(allTasks, existingArrayList.getType());
+
+            int index = myToDoList.indexOf(task);
+            task.completeTask();
+            myToDoList.set(index, task);
+
+            SharedPreferences.Editor editor = sharedPref.edit();
+
+            editor.putString(getString(R.string.task_preference_key), gson.toJson(myToDoList));
+            editor.apply();
+
+            Intent intent = new Intent (this, ListActivity.class);
+            startActivity(intent);
+
+        }
+
+
+
+
+    }
+
 
 
 //    @Override

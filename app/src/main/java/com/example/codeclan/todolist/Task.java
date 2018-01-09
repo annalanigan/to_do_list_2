@@ -1,8 +1,5 @@
 package com.example.codeclan.todolist;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,17 +7,16 @@ import java.util.Date;
  * Created by annalanigan on 05/01/2018.
  */
 
-@Entity
-public class Item implements Serializable {
 
-    @PrimaryKey
+public class Task implements Serializable {
+
     private String name;
     private String details;
     private Boolean completed;
     private String category;
     private Date due;
 
-    public Item(String name, String details, String catName){
+    public Task(String name, String details, String catName){
         this.name = name;
         this.details = details;
         this.completed = false;

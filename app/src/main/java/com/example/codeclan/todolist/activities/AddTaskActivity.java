@@ -1,27 +1,29 @@
-package com.example.codeclan.todolist;
+package com.example.codeclan.todolist.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
+
+import com.example.codeclan.todolist.Task;
+import com.example.codeclan.todolist.R;
 
 import java.util.ArrayList;
 
-public class AddItemActivity extends AppCompatActivity {
+public class AddTaskActivity extends AppCompatActivity {
 
     EditText titleText;
     EditText detailsText;
     EditText categoryChoice;
     EditText dateChoice;
-    ArrayList<Item> spinnerList;
+    ArrayList<Task> spinnerList;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_item);
+        setContentView(R.layout.activity_add_task);
 
         titleText = findViewById(R.id.title);
         detailsText = findViewById(R.id.details);
@@ -40,7 +42,11 @@ public class AddItemActivity extends AppCompatActivity {
         String newDetails = detailsText.getText().toString();
         String newCategory = categoryChoice.getText().toString();
 
+        Task newTask = new Task(newTitle, newDetails, newCategory);
 
+        Intent intent = new Intent(this, ListActivity.class);
+        intent.putExtra("task", newTask);
+        startActivity(intent);
 
     }
 

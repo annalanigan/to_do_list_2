@@ -1,4 +1,4 @@
-package com.example.codeclan.todolist;
+package com.example.codeclan.todolist.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,14 +6,15 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.codeclan.todolist.Task;
+import com.example.codeclan.todolist.R;
 
-public class ItemActivity extends AppCompatActivity {
+public class TaskActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item);
+        setContentView(R.layout.activity_task);
 
         TextView title = findViewById(R.id.view_title);
         TextView details = findViewById(R.id.view_details);
@@ -22,13 +23,13 @@ public class ItemActivity extends AppCompatActivity {
         TextView date = findViewById(R.id.view_date);
 
         Intent intent = getIntent();
-        Item item = (Item) intent.getSerializableExtra("item");
+        Task task = (Task) intent.getSerializableExtra("task");
 
-        title.setText(item.getName());
-        details.setText(item.getDetails());
-        category.setText(item.getCategory());
-        logo.setImageResource(item.getLogo());
-        date.setText(item.getDue().toString());
+        title.setText(task.getName());
+        details.setText(task.getDetails());
+        category.setText(task.getCategory());
+        logo.setImageResource(task.getLogo());
+        date.setText(task.getDue().toString());
 
     }
 }

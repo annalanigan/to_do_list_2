@@ -101,13 +101,15 @@ public class ListActivity extends AppCompatActivity {
             editor.putString(getString(R.string.task_preference_key), gson.toJson(myToDoList));
             editor.apply();
 
-            Intent intent = new Intent (this, ListActivity.class);
-            startActivity(intent);
-
         }
+    }
 
+    public void onRefreshButtonClicked(View view){
 
+        onCheckBoxChecked(view);
 
+        Intent intent = new Intent (this, ListActivity.class);
+        startActivity(intent);
 
     }
 
